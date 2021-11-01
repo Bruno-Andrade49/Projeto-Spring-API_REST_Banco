@@ -55,7 +55,7 @@ public class ContaController {
 		
 		Conta conta = conRepository.findByIdConta(idConta);
 		
-		if (conta.isFlagAtivo() == true) {
+		if (conta.isFlagAtivo() == true && quantidade > 0) {
 			
 			this.contaService.deposita(quantidade, idConta);
 			
@@ -87,7 +87,7 @@ public class ContaController {
 		
 		Conta conta = conRepository.findByIdConta(idConta);
 
-		if (quantidade > 0 && conta.getLimiteSaqueDiario() >= quantidade && conta.isFlagAtivo() == true) {
+		if (quantidade > 0 && quantidade < conta.getSaldo() &&conta.getLimiteSaqueDiario() >= quantidade && conta.isFlagAtivo() == true) {
 			
 			this.contaService.sacar(quantidade, idConta);
 			
