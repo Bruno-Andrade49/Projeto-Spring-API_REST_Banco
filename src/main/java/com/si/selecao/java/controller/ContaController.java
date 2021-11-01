@@ -38,7 +38,6 @@ public class ContaController {
 		
 	}
 
-	// Não mexer - Concluido!
 	// Criação de conta
 	@PostMapping(path = "/conta")
 	public Conta abrirConta(@RequestBody Conta conta) {
@@ -48,7 +47,6 @@ public class ContaController {
 		
 	}
 
-	// Não mexer - Concluido!
 	// Depositar um valor na conta
 	@PutMapping(path = "/conta/depositar/{quantidade}/{idConta}")
 	public ResponseEntity<?> depositar(@PathVariable double quantidade, @PathVariable long idConta) {
@@ -71,7 +69,6 @@ public class ContaController {
 		}
 	}
 
-	// Não mexer - Concluido!
 	// Consultar saldo
 	@GetMapping(path = "/conta/saldo/{idConta}")
 	public String consultarSaldo(@PathVariable("idConta") long idConta) {
@@ -80,7 +77,6 @@ public class ContaController {
 
 	}
 
-	// Não mexer - Concluido
 	// Sacar um valor da conta
 	@PutMapping(path = "conta/sacar/{quantidade}/{idConta}")
 	public ResponseEntity<?> sacar(@PathVariable double quantidade, @PathVariable Long idConta) {
@@ -103,7 +99,7 @@ public class ContaController {
 
 	}
 
-	// Concluido!
+	// Visualizar extrato bancario
 	@GetMapping(path = "conta/extrato/{idConta}")
 	public List<Transacao> mostrarExtrato(@PathVariable Long idConta) {
 		
@@ -111,8 +107,7 @@ public class ContaController {
 		return transactions;
 	}
 
-	// Não mexer - Concluido!
-	// Bloqueio de contas concluido!
+	// Realizar um bloqueio de conta
 	@PutMapping(path = "conta/bloqueio/{idConta}")
 	public ResponseEntity<?> bloqueio(@PathVariable long idConta) {
 		
